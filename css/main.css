@@ -1,0 +1,120 @@
+/* . is class selector */
+:root{
+    --special-color: cyan;
+    --second-color: darkorange;
+}
+
+
+.container{
+    max-width: 900px;
+    margin: 0 auto;
+    --special-background: lightgreen;
+}
+header{
+    background-color: var(--special-background);
+}
+
+main{
+    --special-background: lightblue;
+}
+.stars{
+    background-color: var(--special-background);
+}
+
+footer{
+    background-color: var(--special-background);
+    /* it's the color of container, it's outside of the main */
+}
+
+/* space is descendant selector */
+
+nav ul{
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li{
+    flex: 1;
+}
+
+/*  > is a child or direct child selector  */
+main > p{
+    font-size: 1.5rem;
+}
+
+/* + is adjacent selector */
+h2 + p{
+    background-color: black;
+    color: white;
+    padding: 1 rem;
+}
+
+/* ~ is sibling selector */
+.stars span{
+    cursor: pointer;
+    /* hand icon */
+}
+.stars span:hover ~ span{
+    opacity: .5;
+    /* feel you can mark */
+}
+
+a[href="#"]{
+    color: var(--second-color);
+}
+a[href$=".pdf"]{
+    border: 2px solid tomato;
+}
+
+a[href$=".pdf"]::after{
+    content: "\0020\21E3";
+    /* space can be added, shows intentional */
+    font-weight: bold;
+    color: tomato;
+}
+
+h2 + p::first-line{
+    color: var(--special-color);
+}
+
+h3 + p::first-letter{
+    font-size: 2rem;
+}
+
+/* states related pseudo classes */
+/* LoVe HAte */
+nav a,
+nav a:link,
+nav a:visited{
+    display: inline-block;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: transform .5s;
+}
+
+nav a:hover,
+nav a:focus{
+    text-decoration: underline;
+    transform: scale(1.4)
+
+}
+
+nav a:active{
+    transform: scale(1.4) translateX(10px);
+}
+
+/* calc() function */
+.google{
+    box-sizing: border-box;
+    /* only need to 100%-margin, cause border is already included */
+    display: block;
+    background-color: var(--second-color);
+    width: calc(100% - 2rem);
+    /* width: calc(100% - 4rem - 8px -2rem); */
+    padding: 2rem;
+    border: 4px solid black;
+    margin: 1rem;
+
+}
